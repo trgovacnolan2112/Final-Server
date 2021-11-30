@@ -21,7 +21,7 @@ const Codelog = db.define('codelog', {
     owner: {
         type: DataTypes.INTEGER,
         allowNull: false
-    }
+    },
 })
 
 module.exports = Codelog

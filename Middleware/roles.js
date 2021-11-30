@@ -1,0 +1,30 @@
+const {AccessControl} = require('accesscontrol')
+const ac = new AccessControl()
+
+const Roles = () => {
+    ac.grant('User')
+    .createOwn('codelog')
+    .createOwn('gamelog')
+    .createOwn('user')
+    .deleteOwn('codelog')
+    .deleteOwn('gamelog')
+    .deleteOwn('delete')
+    .updateOwn('gamelog')
+    .updateOwn('codelog')
+    .readOwn('gamelog')
+    .readOwn('codelog')
+    .readOwn('user')
+    ac.grant('Admin')
+    .extends('User')
+    .createOwn('admin')
+    .deleteAny('codelog')
+    .deleteAny('gamelog')
+    .deleteAny('delete')
+    .updateAny('gamelog')
+    .updateAny('codelog')
+    .forum('codelog')
+    .forum('gamelog')
+    .readAny('user')
+}
+
+module.exports = Roles

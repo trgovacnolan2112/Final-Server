@@ -3,6 +3,7 @@ const Express = require('express');
 const app = Express ();
 const controllers = require('./Controllers')
 const dbConnection = require('./db')
+app.use(require('./Middleware/headers'));
 app.use(Express.json());
 app.use('/user', controllers.userC);
 app.use('/gamelog', controllers.gameLog);
